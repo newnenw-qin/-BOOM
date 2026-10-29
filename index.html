@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>红BOOM · 智能整合营销助手</title>
+    <meta name="description" content="内容平台方为品牌方提供的智能整合营销助手 —— 洞察·触点·声场·回声，一站式小红书商业化中枢。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Outfit:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="./css/helix.css" />
+  </head>
+  <body>
+    <!-- 镜头色散滤镜（双螺旋轮播用） -->
+    <svg class="hlx-defs" aria-hidden="true">
+      <filter id="split-red" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+      </filter>
+      <filter id="split-cyan" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"></feColorMatrix>
+      </filter>
+    </svg>
+    <!-- ======================= 登录页（品牌环滚动） ======================= -->
+    <div id="login-screen">
+      <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+      <header>
+        <div class="brand-lettermark" aria-hidden="true"><img src="./assets/my-platform-logo.jpg" alt="红BOOM"></div>
+        <button type="button" class="signin" id="open-login">登录</button>
+      </header>
+      <main class="story">
+        <section class="stage" id="stage">
+          <div class="scene" id="scene">
+            <div class="ring" id="ring" aria-hidden="true"></div>
+          </div>
+          <div class="copy">
+            <div class="copy-inner" id="copy-inner" aria-live="polite">
+              <p class="kicker" id="kicker" hidden></p>
+              <h1 class="is-latin" id="title">
+                <span id="line-a">Business is</span>
+                <span id="line-b">Booming</span>
+              </h1>
+              <p class="sub" id="sub">品牌、内容与商业共同发生</p>
+            </div>
+          </div>
+          <p class="hint" id="hint"><span>向下滚动</span><i></i></p>
+        </section>
+      </main>
+    </div>
+
+    <!-- ======================= 身份建档（首次进入） ======================= -->
+    <div id="onboarding" class="onboarding" hidden>
+      <div class="ob-decor" aria-hidden="true">
+        <div class="shape orb"></div>
+        <div class="shape cloud"></div>
+        <div class="shape blush"></div>
+      </div>
+      <div class="ob-panel glass">
+        <p class="kicker">欢迎使用 红BOOM</p>
+        <h2>开始前，认识一下你的品牌</h2>
+        <p class="ob-sub">这些信息用于全局上下文初始化，后续可在「设置 → 品牌档案」中修改</p>
+
+        <div class="ob-field">
+          <label>品牌名称</label>
+          <input id="ob-name" type="text" value="AURORA & ASH 晨曦与灰" placeholder="输入品牌名称" />
+        </div>
+
+        <div class="ob-field">
+          <label>主营行业</label>
+          <div class="ob-industry-grid" id="ob-industries"></div>
+        </div>
+
+        <div class="ob-field">
+          <label>身份角色</label>
+          <div class="ob-role-grid" id="ob-roles"></div>
+        </div>
+
+        <div class="ob-field">
+          <label>目标市场（可多选）</label>
+          <div class="ob-market-grid" id="ob-markets"></div>
+        </div>
+
+        <div class="ob-field" id="ob-agency-field" hidden>
+          <label>托管店铺数量</label>
+          <input id="ob-stores" type="number" value="12" min="1" placeholder="用于后续计费" />
+        </div>
+
+        <div class="ob-actions">
+          <button type="button" class="ob-skip" id="ob-skip">跳过，使用演示数据</button>
+          <button type="button" class="ob-go" id="ob-go">开始使用 <span>→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================= 主应用 ======================= -->
+    <div id="app" hidden>
+      <!-- 侧边栏 -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sb-logo" title="红BOOM"><img src="./assets/my-platform-logo.jpg" alt="红BOOM"></div>
+        <nav class="sb-nav" id="sb-nav">
+          <button class="sb-item active" data-module="prism" title="洞察 Prism"><span class="sb-ico"><img src="./assets/sidebar/nav-1.jpg" alt="洞察"></span><span class="sb-txt">洞察</span></button>
+          <button class="sb-item" data-module="touch" title="触点 Touchpoint"><span class="sb-ico"><img src="./assets/sidebar/nav-2.jpg" alt="触点"></span><span class="sb-txt">触点</span></button>
+          <button class="sb-item" data-module="sound" title="声场 Soundfield"><span class="sb-ico"><img src="./assets/sidebar/nav-3.jpg" alt="声场"></span><span class="sb-txt">声场</span></button>
+          <button class="sb-item" data-module="echo" title="回声 Echo"><span class="sb-ico"><img src="./assets/sidebar/nav-4.jpg" alt="回声"></span><span class="sb-txt">回声</span></button>
+          <button class="sb-item" data-module="biz" title="商业平台跳转"><span class="sb-ico"><img src="./assets/sidebar/nav-5.jpg" alt="商投"></span><span class="sb-txt">商投</span></button>
+          <div class="sb-divider"></div>
+          <button class="sb-item" data-module="strategy" title="平台策略后台"><span class="sb-ico"><img src="./assets/sidebar/nav-6.jpg" alt="策略"></span><span class="sb-txt">策略</span></button>
+          <button class="sb-item" data-module="settings" title="品牌档案 · 设置"><span class="sb-ico"><img src="./assets/sidebar/nav-7.jpg" alt="设置"></span><span class="sb-txt">设置</span></button>
+        </nav>
+        <div class="sb-foot">
+          <button class="sb-item" id="sb-logout" title="返回登录页"><span class="sb-ico"><img src="./assets/sidebar/nav-8.jpg" alt="退出"></span><span class="sb-txt">退出</span></button>
+        </div>
+      </aside>
+
+      <!-- 顶栏 -->
+      <header class="topbar">
+        <div class="tb-left">
+          <div class="logo">
+            <div class="logo-icon"><img src="./assets/my-platform-logo.jpg" alt="红BOOM"></div>
+            <span class="logo-name">红BOOM</span>
+          </div>
+          <div class="tb-breadcrumb" id="tb-breadcrumb">洞察 Prism</div>
+        </div>
+        <div class="tb-right">
+          <!-- 行业切换 -->
+          <div class="industry-switch" id="industry-switch" title="切换行业">
+            <span class="is-name" id="industry-name">服饰</span>
+            <span class="is-caret">▾</span>
+          </div>
+          <div class="industry-menu glass" id="industry-menu" hidden></div>
+          <!-- 品牌切换（代理商） -->
+          <div class="brand-switch" id="brand-switch" hidden>
+            <span class="bs-icon">🏢</span>
+            <span id="brand-switch-name">AURORA & ASH</span>
+            <span class="is-caret">▾</span>
+          </div>
+          <!-- 通知铃铛 -->
+          <button class="bell" id="bell" title="告警提示">
+            <span class="bell-ico">🔔</span>
+            <span class="bell-dot" id="bell-dot"></span>
+          </button>
+          <div class="bell-panel glass" id="bell-panel" hidden></div>
+          <!-- 用户 -->
+          <div class="user-chip" id="user-chip">
+            <div class="avatar" id="user-avatar">A</div>
+            <div class="user-meta">
+              <span class="user-name" id="user-name">AURORA & ASH</span>
+              <span class="user-role" id="user-role">成熟品牌 · 深度解析</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- 内容区 -->
+      <main class="content" id="module-view"></main>
+    </div>
+
+    <!-- 全局浮层 -->
+    <div id="drawer" class="drawer" hidden></div>
+    <div id="modal" class="modal" hidden></div>
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/knowledge.js"></script>
+    <script src="./js/localize.js"></script>
+    <script src="./js/world-map.js"></script>
+    <script src="./js/deepdive.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
