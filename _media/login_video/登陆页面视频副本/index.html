@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登录 · 品牌与流程</title>
+    <meta
+      name="description"
+      content="品牌、创意与商业流程的登录页。浅灰白空间里，一圈商品卡片随滚动缓缓来到眼前。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+
+    <header>
+      <button type="button" class="signin" id="open-login">登录</button>
+    </header>
+
+    <main class="story">
+      <section class="stage" id="stage">
+        <div class="scene" id="scene">
+          <div class="ring" id="ring" aria-hidden="true"></div>
+        </div>
+
+        <div class="copy">
+          <div class="copy-inner" id="copy-inner" aria-live="polite">
+            <p class="kicker" id="kicker" hidden></p>
+            <h1 class="is-latin" id="title">
+              <span id="line-a">Business is</span>
+              <span id="line-b">Booming</span>
+            </h1>
+            <p class="sub" id="sub">品牌、内容与商业共同发生</p>
+          </div>
+        </div>
+
+        <p class="hint" id="hint">
+          <span>向下滚动</span>
+          <i></i>
+        </p>
+      </section>
+    </main>
+
+    <dialog id="login" aria-labelledby="login-title">
+      <form class="panel" id="login-form">
+        <button type="button" class="close" id="close-login" aria-label="关闭">
+          <span></span>
+          <span></span>
+        </button>
+
+        <div id="login-fields">
+          <p class="kicker">工作台</p>
+          <h2 id="login-title">登录</h2>
+          <p class="panel-sub">品牌、创意与商业流程的同一入口</p>
+
+          <label>
+            <span>邮箱</span>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="username"
+              placeholder="name@studio.com"
+              required
+            />
+          </label>
+          <label>
+            <span>密码</span>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="输入密码"
+              required
+            />
+          </label>
+
+          <p class="form-note" id="form-note" hidden></p>
+          <button type="submit" class="submit">进入</button>
+          <button type="button" class="ghost" id="forgot">忘记密码</button>
+        </div>
+
+        <div id="login-done" hidden>
+          <p class="kicker">已进入</p>
+          <h2>欢迎回来</h2>
+          <p class="panel-sub" id="done-copy"></p>
+          <button type="button" class="submit" id="done-close">返回</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="main.js"></script>
+  </body>
+</html>
